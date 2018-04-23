@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <SDL_mixer.h>
 #include <vector>
 #ifdef _WINDOWS
 #include <GL/glew.h>
@@ -270,18 +271,26 @@ void ProcessInput(const GameState &game){}
 
 
 
-void testcollide(Entity &one, Entity &two){
+bool testcollide(Entity &one, Entity &two){
     if (one.y<two.y+two.height && one.y+one.height>two.y
         && one.x < two.x+two.width && one.x+one.width > two.x){
+
+        //playsound
         one.exist=false;
         two.exist=false;
         std::cout<<"collided";
+        return true;
     }
+    return false;
 }
 
 
 int main(int argc, char *argv[])
-{
+{Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,4096);
+    Mix_Chunk *someSound;
+    someSound=Mix_LoadWAV("someSound.wav");
+    Mix_Music *music;
+    music=Mix_LoadMUS("music.mp3");
     SDL_Init(SDL_INIT_VIDEO);
     displayWindow = SDL_CreateWindow("Space Invader", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 360, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
@@ -367,6 +376,9 @@ int main(int argc, char *argv[])
                     if (event.key.keysym.scancode == SDL_SCANCODE_SPACE){
                         //load new game
                         x=0;
+                        
+                        Mix_PlayMusic(music, -1);
+                        Mix_VolumeMusic(30);
                         lose=false;
                         entities.clear();
                         for(size_t i =0;i<20;i++){
@@ -462,10 +474,16 @@ int main(int argc, char *argv[])
             for (int i=0;i<bullets.size();i++){
                 bullets[i].Update(elapsed);
                 bullets[i].Draw(program2,player_M);
-                testcollide(bullets[i], player);//player will die
+                if (testcollide(bullets[i], player)){
+                    
+                    Mix_PlayChannel(-1, someSound, 0);
+                };//player will die
                 for(int j=0;j<=entities.size()-1;j++){
                     if (bullets[i].exist && entities[j].exist){
-                        testcollide(bullets[i], entities[j]);
+                        if (testcollide(bullets[i], entities[j])){
+                            
+                            Mix_PlayChannel(-1, someSound, 0);
+                        }
                     }
                 }
             }
@@ -497,6 +515,7 @@ int main(int argc, char *argv[])
     glClear(GL_COLOR_BUFFER_BIT);
   //  SDL_GL_SwapWindow(displayWindow);
     }
+    Mix_FreeMusic(music);
     SDL_Quit();
     return 0;
     }

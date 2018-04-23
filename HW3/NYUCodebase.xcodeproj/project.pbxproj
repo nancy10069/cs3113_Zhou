@@ -10,6 +10,9 @@
 		133EA5A9203127CA0091E9E6 /* alienBeige_round.png in Resources */ = {isa = PBXBuildFile; fileRef = 133EA5A8203127CA0091E9E6 /* alienBeige_round.png */; };
 		133EA5AD203127DA0091E9E6 /* alienBeige_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 133EA5AA203127DA0091E9E6 /* alienBeige_square.png */; };
 		133EA5AF203127DA0091E9E6 /* alienBeige_suit.png in Resources */ = {isa = PBXBuildFile; fileRef = 133EA5AC203127DA0091E9E6 /* alienBeige_suit.png */; };
+		1396932C208E441600908F6F /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1396932B208E441600908F6F /* SDL2_mixer.framework */; };
+		13969330208E488E00908F6F /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1396932E208E488E00908F6F /* music.mp3 */; };
+		13969332208E943100908F6F /* someSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13969331208E943000908F6F /* someSound.wav */; };
 		13A00152204CF9510074CB8F /* enemyBlack1.png in Resources */ = {isa = PBXBuildFile; fileRef = 13A00150204CF9500074CB8F /* enemyBlack1.png */; };
 		13A00153204CF9510074CB8F /* playerShip1_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 13A00151204CF9510074CB8F /* playerShip1_blue.png */; };
 		13A00155204CF9D20074CB8F /* enemyGreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 13A00154204CF9D20074CB8F /* enemyGreen1.png */; };
@@ -35,6 +38,9 @@
 		133EA5A8203127CA0091E9E6 /* alienBeige_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alienBeige_round.png; sourceTree = "<group>"; };
 		133EA5AA203127DA0091E9E6 /* alienBeige_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alienBeige_square.png; sourceTree = "<group>"; };
 		133EA5AC203127DA0091E9E6 /* alienBeige_suit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alienBeige_suit.png; sourceTree = "<group>"; };
+		1396932B208E441600908F6F /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_mixer.framework; sourceTree = "<group>"; };
+		1396932E208E488E00908F6F /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		13969331208E943000908F6F /* someSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = someSound.wav; path = ../../../someSound.wav; sourceTree = "<group>"; };
 		13A00150204CF9500074CB8F /* enemyBlack1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyBlack1.png; sourceTree = "<group>"; };
 		13A00151204CF9510074CB8F /* playerShip1_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerShip1_blue.png; sourceTree = "<group>"; };
 		13A00154204CF9D20074CB8F /* enemyGreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyGreen1.png; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5AC2D019AE6280004CB1BF /* OpenGL.framework in Frameworks */,
+				1396932C208E441600908F6F /* SDL2_mixer.framework in Frameworks */,
 				6D5A86AE19AE5C710066C1FD /* Cocoa.framework in Frameworks */,
 				6D5A86E319AE5CD10066C1FD /* SDL2.framework in Frameworks */,
 				6D5AC2D219AE6A1E004CB1BF /* SDL2_image.framework in Frameworks */,
@@ -101,6 +108,7 @@
 		6D5A86AC19AE5C710066C1FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1396932B208E441600908F6F /* SDL2_mixer.framework */,
 				6D5AC2D119AE6A1E004CB1BF /* SDL2_image.framework */,
 				6D5AC2CF19AE6280004CB1BF /* OpenGL.framework */,
 				6D5A86E219AE5CD10066C1FD /* SDL2.framework */,
@@ -167,7 +175,9 @@
 				133EA5AA203127DA0091E9E6 /* alienBeige_square.png */,
 				13A00150204CF9500074CB8F /* enemyBlack1.png */,
 				13A00151204CF9510074CB8F /* playerShip1_blue.png */,
+				1396932E208E488E00908F6F /* music.mp3 */,
 				133EA5AC203127DA0091E9E6 /* alienBeige_suit.png */,
+				13969331208E943000908F6F /* someSound.wav */,
 				6DEF23BB1B96CC2600BCE792 /* fragment.glsl */,
 				6DE9D2F01BA6AB8C002D599C /* fragment_textured.glsl */,
 				6DC707691BA7273500225B7D /* vertex_textured.glsl */,
@@ -234,12 +244,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13969332208E943100908F6F /* someSound.wav in Resources */,
 				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
 				133EA5AD203127DA0091E9E6 /* alienBeige_square.png in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
 				13A00157204D082C0074CB8F /* font1.png in Resources */,
 				13A00153204CF9510074CB8F /* playerShip1_blue.png in Resources */,
 				13A00155204CF9D20074CB8F /* enemyGreen1.png in Resources */,
+				13969330208E488E00908F6F /* music.mp3 in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
 				13AC8D60204BCFB30076E44A /* sheet.png in Resources */,
 				133EA5A9203127CA0091E9E6 /* alienBeige_round.png in Resources */,
@@ -373,6 +385,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -381,6 +394,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Library/Frameworks/SDL2_image.framework/Versions/A/Headers,
 					/Library/Frameworks/SDL2.framework/Versions/A/Headers,
+					/Library/Frameworks/SDL2_mixer.framework/Versions/A/Headers,
 				);
 				INFOPLIST_FILE = "NYUCodebase/NYUCodebase-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -396,6 +410,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
